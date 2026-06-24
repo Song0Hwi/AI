@@ -105,18 +105,72 @@
 - 안정성: 비교적 안정. 낮은 pH·고온 장기 보관 시 니아신(자극 유발 부산물) 전환 가능 → 제형 pH 관리 권장.
 - 결론: 색소·장벽 양쪽 근거가 있어 미백·진정 세럼 성분으로 합당. 단 "미백"은 기능성 표현 규제 확인 필요.
 
-### 예시 2 — 좋은 입력 → 좋은 출력 (어성초 추출물)
+### 예시 2 — 좋은 입력 → 좋은 출력 (레티날)
 **입력**
 ```
-[대상 성분]: Houttuynia Cordata Extract (어성초 추출물)
-[제품 카테고리]: 진정 세럼
-[입력 자료]: (어성초 항염 효과 in vitro 논문 첨부)
+[대상 성분]: Retinal
+[제품 카테고리]: 피부 미백, 항노화
+[입력 자료]: (레티날 관련 논문)
 [필수 포함 항목]: 작용기전 / 유효성 근거 수준 / 규제·표현 한계
 ```
-**출력(요약)**
-- 작용기전: ① 염증 매개 사이토카인(예: NO, PGE2) 생성 억제로 항염·진정(저자, 연도) ② 항산화 폴리페놀에 의한 산화 스트레스 완화.
-- 유효성 근거 수준: **in vitro(세포·동물 모델) 중심**. 인체 임상 근거는 첨부 논문에 없음 → 임상 효능 단정 불가.
-- 규제·표현 한계: "진정에 도움" 수준의 화장품 표현은 가능하나 "항염 치료" 등 의학적 표현 금지.
+**출력**
+1. 성분 개요
+
+INCI명: Retinal — 논문 미언급(일반 식별자)
+관용명: 레티날 / 레티날데하이드 / 비타민A 알데하이드 (retinaldehyde, RAL)
+CAS: 116-31-4 (all-trans-retinal) — 논문 미언급(일반 식별자, 확인 필요) / CI: 해당 없음
+분류: 1세대 비방향족 레티노이드, 비타민A 알데하이드. retinoic acid(tretinoin)의 직접 전구체이자 대사 중간체(retinol → retinaldehyde → retinoic acid). cosmeceutical(화장품)로 규제됨 (Milosheska & Roškar, 2022; Mambwe 외, 2025)
+
+2. 작용기전(MoA)
+
+분화된 keratinocyte의 retinaldehyde dehydrogenase에 의해 활성형 retinoic acid로 산화되어 작용. 전환 효율 서열상 retinol보다 활성형에 가까움 (Milosheska & Roškar, 2022; Mambwe 외, 2025)
+전환된 ATRA가 세포 내 CRABP2/FABP5 비율에 따라 RAR/RXR(증식억제·apoptosis) 또는 PPARβ/δ-RXR(증식·분화) 경로를 활성화 (Mambwe 외, 2025)
+표피: 기저 keratinocyte 증식 촉진 → 표피 비후·각질층 compaction (Mambwe 외, 2025)
+진피 ECM: keratinocyte 매개로 papillary dermis의 FRM(fibrillin-rich microfibril)·콜라겐 합성 증가, MMP 감소·TIMP 증가 (Mambwe 외, 2025)
+보습·저자극 기전: GAG/hyaluronan 생성 증가 (Mambwe 외, 2025); 레티날은 수용체에 직접 결합하지 않고 일부만 tretinoin으로 전환되어 수용체 '과부하'를 막아 저자극 (Milosheska & Roškar, 2022)
+
+3. 안정성·배합 적합성
+
+광/열/산화: 자가산화·광산화에 매우 불안정한 분자로, 제형 안정화가 필수 (Milosheska & Roškar, 2022). 상용 레티노이드 화장품은 제형 의존적 화학·물리 불안정이 확인됨 (Mambwe 외, 2025)
+안정화 전략: proretinal 나노입자(키토산 그래프트), NLC 등 나노기술로 안정성·방출 개선 시도 (Milosheska & Roškar, 2022)
+pH 적합 범위: 논문 미언급 — 확인 필요
+상충/병용 성분(AHA·BHA·Vit.C·나이아신아마이드 등): 레티날 특이 상충 데이터 — 논문 미언급, 확인 필요 (CoQ10와 NLC 공동탑재 사례만 보고)
+피부 부작용: tretinoin·retinol보다 자극이 낮으나 '레티노이드 피부염'(건조·각질·홍반·TEWL 증가) 가능, 대개 단기적·완화되며 보습제로 경감 (Mambwe 외, 2025). 유색인종은 자극 시 PIH(염증후 색소침착) 위험 증가 (Mambwe 외, 2025)
+전신안전: 고농도·장기 도포에도 혈장 레티노이드 변화 미검출(피부 대사) (Milosheska & Roškar, 2022). 임신 중 국소 레티노이드는 근거 부족으로 권고 불가 (Milosheska & Roškar, 2022)
+
+4. 유효성 근거 수준
+
+임상(RCT·vehicle 포함): 0.05% RAL vs 0.05% tretinoin vs vehicle, 무작위·이중맹검·전안면, 44주, n=125 — 주름·거칠기 유의 감소, 군간 유의차 없음, tretinoin이 자극↑·순응도↓ (Creidi; Milosheska & Roškar, 2022, Table 2)
+임상(RCT·vehicle 없음): 0.05% vs 0.1% RAL, 3개월, 여성 n=40 — 수분·주름·거칠기 개선·TEWL 감소, 군간 유의차는 멜라닌 지수(0.1%↑)만 (Kwon; Milosheska & Roškar, 2022; Mambwe 외, 2025)
+임상: 0.05% RAL 1년 — 표피 두께·탄력 개선(초음파·rheology) (Diridollou; Mambwe 외, 2025); 0.1% RAL 8주 — glycolic acid 필링과 동등 효과·우수 내약성 (Rouvrais; Mambwe 외, 2025)
+임상(나노): 0.025% proretinal hydrogel vs 0.025% tretinoin hydrogel, split-face, 12주, n=30 — RAL 나노제형이 항노화 더 우수 (Pisetpackdeekul; Milosheska & Roškar, 2022, Table 2)
+in vitro/in vivo(동물): CoQ10+RAL 0.05% NLC, 마우스 주름 (Nayak; Milosheska & Roškar, 2022)
+한계: 일부 vehicle control 부재, 소표본·단기 → 결론 강도 제한
+
+5. 규제·표현 한계
+
+효능 단정 불가: 논문도 'improvement/완화' 수준 → '치료·완치·100%' 표현 부적절
+'tretinoin 동등' 표현은 일부 임상의 vehicle control 부재·소표본 탓에 신중히 표기
+레티날 전용 규제 농도 한도: 논문 미언급 — EU SCCS 의견은 retinol·retinyl acetate·retinyl palmitate 대상(레티날 아님), 별도 확인 필요
+한국 MFDS 주름개선 기능성 고시 포함 여부: 본 논문 범위 밖 — 확인 필요
+화장품은 시판 전 엄격한 안전·효능 임상 의무가 없어 클레임 근거수준에 주의 (Milosheska & Roškar, 2022)
+
+6. 결론 (합당성 판단)
+
+레티날은 retinoic acid 직전 전구체로 retinol보다 활성형 전환 효율이 높고 tretinoin보다 자극이 낮은 균형형 cosmeceutical 레티노이드다.
+0.05% 전후에서 광노화 주름·탄력·수분 개선이 vehicle·tretinoin 대비 일부 임상으로 뒷받침되며 내약성이 우수하다.
+다만 고품질 vehicle-controlled 임상이 제한적이고 분자가 매우 불안정 → 목적엔 합당하나 효능 클레임·제형 안정화는 보수적 접근 필요.
+
+핵심 근거 3
+
+기전: retinoic acid 전구체로 RAR/RXR·PPARβ/δ 경유, 수용체 과부하 방지로 저자극 (Milosheska & Roškar, 2022; Mambwe 외, 2025)
+임상: 0.05% RAL ≈ 0.05% tretinoin 유효하되 자극↓·순응도↑ (Creidi, Table 2); 0.05–0.1% RAL 주름·TEWL·수분 개선 (Kwon; Diridollou)
+한계: 자가·광산화로 매우 불안정 → 제형 안정화 필수, 일부 임상 vehicle control 부재
+
+7. 출처 목록
+
+Milosheska D, Roškar R. Use of Retinoids in Topical Antiaging Treatments: A Focused Review of Clinical Evidence for Conventional and Nanoformulations. Adv Ther. 2022;39(12):5351–5375. DOI: 10.1007/s12325-022-02319-7 (레티날 절: p.5361–5362, Table 2 p.5359)
+Mambwe B, Mellody KT, Kiss O, et al. Cosmetic retinoid use in photoaged skin: A review of the compounds, their use and mechanisms of action. Int J Cosmet Sci. 2025;47(1):45–57. DOI: 10.1111/ics.13013 (레티날·MoA: p.48–52)
 
 ### 예시 3 — 모호 입력 → AI가 되묻는 케이스 (의도된 불충분 입력)
 **입력**
