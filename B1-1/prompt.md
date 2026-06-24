@@ -187,8 +187,66 @@ TL;DR: retinoic acid 직전 전구체로 retinol보다 활성 전환 효율↑·
 ▸ 규제/클레임: 'tretinoin 동등'은 일부 임상 vehicle 부재 탓 신중 표기. 레티날 전용 규제 한도는 논문 범위 밖 — 확인 필요.
 ▸ 한계: 일부 임상 vehicle control 부재·소표본; 레티날 전용 pH·병용 데이터 논문 미언급.
 ▸ 출처: Milosheska D, Roškar R. Adv Ther. 2022;39(12):5351–5375. DOI: 10.1007/s12325-022-02319-7 · Mambwe B, et al. Int J Cosmet Sci. 2025;47(1):45–57. DOI: 10.1111/ics.13013
+
+■ few-shot 예시 3 — 풀 모드 (레티날)
+
+입력:
+[대상 성분]: Retinal / 레티날
+[제품 카테고리]: 항노화 세럼
+[입력 자료]: (Milosheska & Roškar 2022; Mambwe 외 2025)
+[출력 모드]: 풀
+[필수 포함 항목]: 작용기전 / 안정성 / 유효성 / 결론
+
+출력:
+
+### 성분 개요
+- INCI명: Retinal — 표준 식별자(논문 근거 대상 아님). 관용명 retinaldehyde / RAL / 비타민A 알데하이드.
+- CAS: 116-31-4 (all-trans-retinal) — 확인 필요(표준 DB). CI: 해당 없음.
+- 분류: 1세대 비방향족 레티노이드. retinoic acid(tretinoin)의 직접 전구체이자 대사 중간체(retinol → retinaldehyde → retinoic acid) (Milosheska & Roškar, 2022; Mambwe 외, 2025).
+
+### 작용기전
+- 분화 keratinocyte의 retinaldehyde dehydrogenase에 의해 활성형 retinoic acid로 산화 → 전환 효율이 retinol보다 활성형에 가까움 (Milosheska & Roškar, 2022; Mambwe 외, 2025).
+- 전환된 ATRA가 CRABP2/FABP5 비율에 따라 RAR/RXR(증식억제·apoptosis) 또는 PPARβ/δ-RXR(증식·분화) 경로 활성화 (Mambwe 외, 2025).
+- 저자극 기전: 수용체에 직접 결합하지 않고 일부만 tretinoin으로 전환 → 수용체 '과부하' 방지 (Milosheska & Roškar, 2022)(추정·기전).
+
+  [농도별 작용기전]
+  · 0.05%: 기저 keratinocyte 증식·각질층 compaction, 진피 papillary FRM·콜라겐↑·MMP↓·TIMP↑ (Mambwe 외, 2025)(tretinoin 대조 RCT, 동등·자극↓).
+  · 0.1%: 0.05% 대비 수분·주름 개선에 더해 멜라닌지수 추가 변화 보고 (Kwon; Milosheska & Roškar, 2022)(RCT, vehicle 없음).
+  · 전 구간 공통: GAG/hyaluronan 생성 증가로 보습 (Mambwe 외, 2025)(in vitro/임상 혼재).
+  · 고농도(>0.1%) 임계값별 작용 변화: 논문 미언급 — 확인 필요.
+
+### 안정성·배합 적합성
+- 광/열/산화: 자가산화·광산화에 매우 불안정 → 제형 안정화 필수 (Milosheska & Roškar, 2022).
+- 안정화 전략: proretinal 나노입자(키토산 그래프트), NLC 등 (Milosheska & Roškar, 2022).
+- pH 적합 범위, AHA·BHA·Vit.C·나이아신아마이드 등 병용 상충: 논문 미언급 — 확인 필요(CoQ10+RAL NLC 공동탑재 사례만 보고).
+- 피부 부작용: tretinoin·retinol보다 자극 낮으나 '레티노이드 피부염'(건조·각질·홍반·TEWL↑) 가능, 대개 단기·보습제로 경감 (Mambwe 외, 2025). 유색인종은 자극 시 PIH 위험↑ (Mambwe 외, 2025).
+- 전신안전: 고농도·장기 도포에도 혈장 레티노이드 변화 미검출(피부 대사) (Milosheska & Roškar, 2022). 임신 중 국소 레티노이드는 근거 부족으로 권고 불가 (Milosheska & Roškar, 2022).
+
+### 유효성 근거 수준
+- 0.05% RAL vs 0.05% tretinoin vs vehicle, n=125, 44주 — 주름·거칠기 유의 감소, 군간 차 없음, tretinoin 자극↑·순응도↓ (Creidi; Milosheska & Roškar, 2022, Table 2)(vehicle 포함 RCT).
+- 0.05% vs 0.1% RAL, 여성 n=40, 3개월 — 수분·주름·거칠기 개선·TEWL 감소, 군간 차는 멜라닌지수(0.1%↑)만 (Kwon)(RCT, vehicle 없음).
+- 0.05% RAL 1년 — 표피 두께·탄력 개선(초음파·rheology) (Diridollou; Mambwe 외, 2025)(임상).
+- 0.025% proretinal hydrogel vs tretinoin hydrogel, split-face, n=30, 12주 — RAL 나노제형 항노화 우수 (Pisetpackdeekul)(RCT, split-face).
+- CoQ10+RAL 0.05% NLC, 마우스 주름 (Nayak)(동물).
+- 한계: 일부 vehicle control 부재·소표본·단기 → 결론 강도 제한.
+
+### 규제·표현 한계
+- '치료·완치·100%' 등 단정 표현 금지. 논문도 'improvement/완화' 수준.
+- 'tretinoin 동등' 표현은 일부 임상 vehicle 부재·소표본 탓 신중 표기.
+- 레티날 전용 규제 농도 한도·기능성 고시 포함 여부: 본 논문 범위 밖 — 확인 필요(SCCS 의견은 retinol/retinyl ester 대상, 레티날 아님).
+
+### 결론
+레티날은 retinoic acid 직전 전구체로 retinol보다 활성 전환 효율이 높고 tretinoin보다 자극이 낮은 균형형 cosmeceutical 레티노이드다. 0.05% 전후에서 광노화 주름·탄력·수분 개선이 vehicle·tretinoin 대비 일부 임상으로 뒷받침되며 내약성이 우수하다. 다만 고품질 vehicle-controlled 임상이 제한적이고 분자가 매우 불안정하다. 따라서 항노화 목적엔 합당하나 효능 클레임과 제형 안정화는 보수적으로 접근해야 한다.
+
+- 기전: retinoic acid 전구체로 RAR/RXR·PPARβ/δ 경유, 수용체 과부하 방지로 저자극 (Milosheska & Roškar, 2022; Mambwe 외, 2025).
+- 임상: 0.05% RAL ≈ 0.05% tretinoin 유효하되 자극↓·순응도↑ (Creidi); 0.05~0.1% RAL 주름·TEWL·수분 개선 (Kwon; Diridollou).
+- 한계: 자가·광산화로 매우 불안정 → 제형 안정화 필수, 일부 임상 vehicle control 부재.
+
+### 출처 목록
+- Milosheska D, Roškar R. Use of Retinoids in Topical Antiaging Treatments. Adv Ther. 2022;39(12):5351–5375. DOI: 10.1007/s12325-022-02319-7 (레티날 절: p.5361–5362, Table 2 p.5359)
+- Mambwe B, Mellody KT, Kiss O, et al. Cosmetic retinoid use in photoaged skin. Int J Cosmet Sci. 2025;47(1):45–57. DOI: 10.1111/ics.13013 (레티날·MoA: p.48–52)
 ```
-### 예시 3 — 모호 입력 → AI가 되묻는 케이스 (의도된 불충분 입력)
+### 예시 4 — 모호 입력 → AI가 되묻는 케이스 (의도된 불충분 입력)
 **입력**
 ```
 비타민C 분석해줘.
