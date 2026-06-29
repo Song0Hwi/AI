@@ -4,7 +4,7 @@
 | 모델 | 개발사 | 비교 시점 버전 |
 |---|---|---|
 | GPT-5.5 | OpenAI | 웹/API 최신 |
-| Clade Opus4.8 | Anthropic | 웹/API 최신 |
+| Claucde Opus4.8 | Anthropic | 웹/API 최신 |
 | Gemini 3.1 Pro | Google | 웹/API 최신 |
 
 
