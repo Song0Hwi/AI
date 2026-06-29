@@ -247,7 +247,7 @@ TL;DR: retinoic acid 직전 전구체로 retinol보다 활성 전환 효율↑·
 - Mambwe B, Mellody KT, Kiss O, et al. Cosmetic retinoid use in photoaged skin. Int J Cosmet Sci. 2025;47(1):45–57. DOI: 10.1111/ics.13013 (레티날·MoA: p.48–52)
 ```
 ■ few-shot 예시 4 — 모호 입력 → AI가 되묻는 케이스 (의도된 불충분 입력)
-
+```
 입력
 ```
 비타민C 분석해줘.
@@ -259,7 +259,7 @@ TL;DR: retinoic acid 직전 전구체로 retinol보다 활성 전환 효율↑·
 > 3. 근거로 사용할 **논문 URL 또는 PDF**가 있나요? (없으면 일반 지식 기반임을 명시하고 분석합니다)
 >
 > 위 정보 없이 임의로 특정 유도체를 가정해 답하면 부정확할 수 있어, 확인 후 진행하겠습니다.
-
+```
 ---
 
 ## 5. 단계적 추론 유도: v1 vs v2 비교
