@@ -1,0 +1,174 @@
+바쿠치올에 대한 정보를 알려줘
+
+오후 5:11
+
+바쿠치올 분석 전 필수 정보 확인 필요성 검토했음
+바쿠치올 분석 전 필수 정보 확인 필요성 검토했음
+바쿠치올은 단일 화합물(meroterpene phenol)이라 비타민C처럼 유도체 형태를 되물을 필요는 없습니다. 다만 정확한 분석을 위해 아래를 먼저 확인하겠습니다 — 가정으로 진행하지 않습니다.
+
+분석 목적/카테고리가 무엇인가요? (예: 레티놀 대체 항노화 / 진정·민감성 / 미백 소구 — 어디에 합당한지 판단 기준이 달라집니다)
+근거로 쓸 논문 URL 또는 PDF가 있나요?
+있으면 그 자료 기반으로 (저자, 연도)·근거 유형까지 붙여 분석합니다.
+없으면 **"일반 지식 기반·논문 미검증"**임을 서두에 명시하고 진행합니다.
+출력 모드: 퀵스캔(빠른 훑기) / 풀(7섹션 정밀) — 미지정 시 퀵스캔으로 처리합니다.
+참고로 바쿠치올은 "레티놀 대체"로 많이 소구되지만, 화학적으로는 레티노이드가 아니며(RAR 직접 결합 X), 기능적 유사성은 일부 유전자 발현 프로파일 중첩 근거에 기반합니다. 이 구분이 클레임에서 중요하므로, 목적을 알려주시면 그 맥락에 맞춰 합당성을 짚겠습니다.
+
+위 1~3 중 알려주시면 바로 분석 들어가겠습니다. (자료 없이 일반 지식으로 빠르게 보고 싶으시면 "일반 지식, 퀵스캔"이라고만 답해 주셔도 됩니다.)
+
+바쿠치올.pdf
+pdf
+
+바쿠치올의 전체적인 작용기전.
+
+오후 5:36
+
+바쿠치올의 레티놀 유사 및 독립적 작용기전을 종합 분석했다
+바쿠치올의 레티놀 유사 및 독립적 작용기전을 종합 분석했다
+논문 1편(Mascarenhas-Melo 외, 2024, Phytochem Rev — 종설/review) 기반으로 작용기전 중심으로 정리합니다. 요청이 기전에 한정되어 풀 모드 7섹션 전체는 생략하고, 기전 섹션을 정밀하게 전개합니다(안정성·규제·유효성 근거표 전체가 필요하면 풀 모드로 다시 드립니다).
+
+■ Bakuchiol / 작용기전 분석
+INCI: Bakuchiol — 표준 식별자. 관용명 BAK. 화학명 4-[(1E,3S)-3-ethenyl-3,7-dimethylocta-1,6-dien-1-yl]phenol.
+CAS: 10309-37-2 (NCBI/PubChem CID 5468522 인용, 논문 Table 1). C18H24O, MW 256.38, (S)-키랄, meroterpene phenol(페놀 + 모노테르펜 측쇄).
+TL;DR: 레티노이드와 구조적 유사성이 전혀 없는데도 유전자 발현 프로파일이 retinol과 겹쳐 "기능적 유사체(functional analog)"로 분류 — 핵수용체(RAR/RXR) 직접 활성화 없이 ECM/DEJ 유전자를 상향조절하며, 동시에 독립적 항산화·항염 기전을 보유한 다중기전(multi-target) 성분. 단, 기전 근거는 대부분 in vitro/ex vivo.
+1. 레티놀 유사("retinol-like") 기전 — 유전자 발현 조절
+핵심 구분점: retinol은 핵 retinoid 수용체(RAR/RXR)를 양성 조절하지만, BAK은 이 수용체 조절에 관여하지 않음 → 자극 부작용 회피의 기전적 근거 (Chaudhuri & Bojanowski, 2014; Napoli 2017 인용)(in vitro, DNA microarray). "레티노이드 수용체에 결합한다"는 표현은 부정확 — 결합이 아니라 발현 프로파일 모방.
+LRAT(lecithin-retinol acyltransferase) 상향조절 → 내인성 retinol의 에스터화·저장 촉진 → 피부 내 retinol 생체이용률↑ (Chaudhuri & Bojanowski, 2014)(in vitro).
+ECM/DEJ 유전자 상향: collagen 원섬유·elastin microfibril, fibronectin-like, hyaluronan synthase 3, AQP3(수분/글리세롤 채널) — 일부는 retinol보다 강하게 상향 (Chaudhuri & Bojanowski, 2014)(in vitro/ex vivo EpiDermFT).
+콜라겐 합성: 성숙 섬유아세포 모델에서 type I/II/IV = 147/150/119%(BAK) vs 119/148/100%(RET). 세포 증식이 아니라 "선택적 대사 활성화"로 합성 — 증식 유도 없이 콜라겐↑ (Chaudhuri & Bojanowski, 2014)(in vitro).
+DEJ 결합 유전자(collagen α6(IV)·α2(XVII)), hemidesmosome(plectin I, integrin), laminin 상향 → 표피-진피 결속 강화 (Chaudhuri & Bojanowski, 2014)(in vitro).
+2. 비-레티놀("non-retinol-like") 독립 기전
+항산화: BAK은 "비입체장애 페놀(unhindered phenol)" — 수소 공여 후 phenolic oxygen free radical(POFR)의 공명 안정화로 라디칼 소거. retinol 대비 항산화력 우수(12,125 vs 848 antioxidative unit) (Bluemke 외, 2022)(in vitro, DPPH/ESR); 스쿠알렌 산화 보호지수 비타민E의 2배 (Trompezinski 외, 2016)(in vitro).
+항염: NF-κB 불활성화 → iNOS 발현 용량 의존적 억제 → NO 생성↓ (Pae 외, 2001)(in vitro, RAW264.7); NO 억제 IC50 21.57 μM(< quercetin 33.08) (Chen 외, 2017)(in vitro). PGE2·MIF 감소 → 이 두 사이토카인이 MMP↑·collagen↓를 유도하므로, 억제가 곧 항노화로 연결 (Bluemke 외, 2022)(in vitro, HDF).
+광노화 방지: UVA 후 섬유아세포 형태 변화(star→fusiform) 억제, IL-8·p16(노화 마커)↓ (Bacqueville 외, 2020)(in vitro); GAG 망 복원으로 진피 재밀도화 (ex vivo 광손상 피부).
+3. 미백(depigmenting) 기전
+tyrosinase 활성·발현↓, TRP-1/TRP-2·MITF·α-PAK↓, 그리고 Rac1·Cdc42(멜라닌세포 수상돌기 형성 관여 GTP 결합단백) 활성 억제 (Kang 외, 2020)(in vitro 멜라닌세포 / zebrafish / 3D 피부, UP256=77% BAK).
+4. 항균·항진균 기전
+막 활성(membrane-active): 페놀 수산기 + 벤젠고리 친유성에 의존 (Cui 외, 2015)(in vitro, MRSA). 항진균은 진균 막투과성을 용량 의존적으로 증가 + ROS 생성 → DNA 단편화가 아닌 막·산화 손상으로 사멸 (Lau 외, 2014)(in vitro/in vivo guinea pig).
+5. (참고) 항암 기전 — in vitro 단독, 약한 근거
+A2058 흑색종에서 apoptosis: caspase-3↑, Bax↑/Bcl-2↓, p53↑, 농도 의존적 ROS↑; 섬유아세포에는 무영향(선택적 독성) (Madrid 외, 2015)(in vitro). 임상·생체 근거 없음 → 화장품 맥락에서 클레임 불가.
+[농도별 작용기전] (필수)
+논문은 국소 도포 % 기준의 "농도별 기전 전환 임계값"을 제시하지 않음. 대신 시험관 시험농도와 임상 제형 농도가 혼재하므로, 실측된 것만 표기합니다.
+
+시험관 저농도 0.02–0.2 mg/mL: 생체적합·세포생존 우수, 유익 효과 (Lewińska 외, 2021)(in vitro, keratinocyte/HDF).
+시험관 고농도 0.5 mg/mL: 세포독성 — 생존율 24h 약 60%↓, 48h 약 55%↓ → 저농도 유익 ↔ 고농도 독성의 농도 의존적 전환은 실재 (Lewińska 외, 2021)(in vitro).
+용량 의존성 명시 기전: NF-κB/iNOS 억제(Pae 2001), 진균 막투과성·ROS(Lau 2014), 항암 ROS·apoptosis(Madrid 2015) — 모두 "dose/concentration-dependent"로 기술 (in vitro).
+미백: UP256(77% BAK) 5 μM ≈ phenylthiourea 10 μM 수준 멜라닌 억제 (Kang 외, 2020)(in vitro).
+임상 사용 농도(기전 아닌 효능·내약성): 0.5%(Chaudhuri 2014; Bluemke 2022), 1%(Draelos 2020), 1.5% BAK+1% VTE 세럼(Bacqueville 2020). Draelos(2020)는 BAK이 **레티노이드와 달리 "농도 스케일링(dose scaling) 불필요"**하게 내약성을 유지한다고 기술.
+국소에서 저농도 보습 ↔ 고농도 각질박리/자극 같은 명확한 농도별 기전 전환 임계값: 논문 미언급 — 확인 필요(레티노이드형 "농도 비례 자극" 패턴이 BAK엔 적용되지 않는다는 것이 오히려 논문의 주장).
+결론(기전 관점)
+바쿠치올의 작용기전은 (1) 수용체 비매개 retinol-유사 유전자 발현 조절(ECM·DEJ·AQP3↑, LRAT 통한 내인 retinol↑) 과 (2) 페놀 구조 기반의 독립적 항산화·항염·미백·항균 이 결합된 다중기전이며, retinoid 핵수용체를 직접 자극하지 않는 점이 저자극성의 기전적 핵심입니다.
+
+기전: RAR/RXR 직접 활성 없이 retinol 발현 프로파일 모방 + LRAT↑로 내인 retinol 가용성↑, 동시에 POFR 항산화·NF-κB 억제 (Chaudhuri & Bojanowski, 2014; Bluemke 외, 2022; Pae 외, 2001)(in vitro).
+임상/근거: 0.5–1% 제형에서 주름·탄력·톤·내약성 개선 보고되나, 기전 자체는 거의 전부 in vitro/ex vivo이며 retinol과의 head-to-head는 유전자 발현·세포 수준에 한정 (Draelos 2020; Bacqueville 2020).
+한계: 종설(review) 1편 기반 — 원저 RCT가 아니므로 인과·통계는 원논문 추적 필요; 막 활성·항암 기전의 분자 표적 일부 미규명("기전 추가 규명 필요"는 저자 결론).
+원하시면 이 기전을 레티놀과 1:1로 비교한 표, 또는 풀 모드 7섹션(안정성·CYP 대사·규제·접촉피부염 보고 사례 포함), 혹은 기전 흐름을 한눈에 보는 다이어그램으로도 정리해 드리겠습니다.
+
+"다음 순서로 진행해줘. ① 입력 자료와 분석 목적이 충분한지 점검하고 부족하면 질문 → ② 논문에서 확인되는 작용기전만 추출 → ③ 안정성·근거 수준 정리 → ④ 결론. 단, 최종 답변에는 추론 과정을 길게 노출하지 말고 핵심 근거로만 요약해줘."
+
+오후 5:39
+
+검증 후 핵심 근거만 정리하기로 결정했다
+검증 후 핵심 근거만 정리하기로 결정했다
+① 점검: 성분(bakuchiol), 목적(작용기전·항노화 합당성), 자료(Mascarenhas-Melo 외 2024 종설 1편) 모두 확인됨 — 추가 질문 불필요. 단, 자료가 review 1편이라 인과·통계는 원저 추적이 필요한 한계가 있음.
+
+■ Bakuchiol / 항노화 세럼 — 작용기전·안정성·근거
+TL;DR: 레티노이드 핵수용체(RAR/RXR)를 직접 자극하지 않으면서 retinol 유전자 발현을 모방하고, 독립적 항산화·항염 기전을 동반하는 다중기전 성분. 항노화에 합당하나 기전 근거는 대부분 in vitro.
+
+② 논문에서 확인되는 작용기전만 추출
+수용체 비매개 retinol-유사: RAR/RXR 직접 조절 없음. retinol과 유전자 발현 프로파일 중첩으로 "기능적 유사체"로 분류 (Chaudhuri & Bojanowski, 2014)(in vitro, DNA microarray).
+내인 retinol↑: LRAT 상향조절 → retinol 에스터화·저장 → 피부 내 가용성↑ (Chaudhuri & Bojanowski, 2014)(in vitro).
+ECM/DEJ·보습 유전자↑: collagen·elastin·fibronectin, hyaluronan synthase 3, AQP3 상향(일부 retinol 초과). 콜라겐은 세포 증식 없이 "선택적 대사 활성화"로 합성 (Chaudhuri & Bojanowski, 2014)(in vitro/ex vivo EpiDermFT).
+항산화: 비입체장애 페놀의 POFR 공명 안정화로 라디칼 소거, retinol 대비 항산화력↑ (Bluemke 외, 2022)(in vitro, DPPH/ESR).
+항염: NF-κB 불활성화 → iNOS·NO 용량 의존적 억제 (Pae 외, 2001)(in vitro); PGE2·MIF↓ → MMP↑·collagen↓ 경로 차단 (Bluemke 외, 2022)(in vitro).
+광노화 방지: UVA 후 섬유아세포 형태 변화·IL-8·p16↓ (Bacqueville 외, 2020)(in vitro/ex vivo).
+(부수) 미백: tyrosinase·MITF·TRP↓, Rac1/Cdc42 억제 (Kang 외, 2020)(in vitro/zebrafish/3D).
+농도별: 국소 % 기준의 기전 전환 임계값은 논문 미언급 — 확인 필요. 단 시험관에서 저농도(0.02–0.2 mg/mL) 유익 ↔ 고농도(0.5 mg/mL) 세포독성(생존율 ~60%↓)의 전환은 실재 (Lewińska 외, 2021)(in vitro). 저자는 BAK이 레티노이드와 달리 "농도 스케일링 불필요"하게 내약성 유지라 기술 (Draelos 외, 2020).
+
+③ 안정성·근거 수준
+안정성 위험: 공기·광·고온에 불안정. 실온 8개월 보관 시 4-hydroxybenzaldehyde(비활성)로 분해 → 항균력 소실 (Hsu 외, 2009). 대응: 마이크로/나노스펀지·나노에멀젼 캡슐화로 광안정성↑ (Wadhwa 2019; Kumar 2018; Lewińska 2021).
+대사·상호작용: CYP2C9/2C19/3A4 대사 → CYP 억제제(예: glycyrrhetinic acid) 병용 시 독성↑ 가능 (Li 외, 2016a).
+부작용: 일반적으로 저자극이나 접촉피부염 양성 보고 2건(0.1%, 1% 제형) 존재 (Malinauskiene 2019; Raison-Peyron 2020).
+근거 수준: review 1편 인용. 기전은 거의 전부 in vitro/ex vivo, 임상은 0.5–1% 제형의 주름·탄력·톤 개선(소표본·vehicle 한정)이라 인과 강도 제한.
+④ 결론
+바쿠치올은 RAR/RXR를 직접 활성화하지 않고 retinol 발현을 모방하며 항산화·항염을 더하는 다중기전 성분으로, 항노화 목적에 기전적으로 합당합니다. 다만 (a) 핵심 기전이 대부분 시험관 수준, (b) 분자가 산화·광분해에 불안정해 제형 안정화가 필수, (c) 저자극이나 접촉피부염 사례가 존재한다는 세 가지를 전제로 보수적으로 접근해야 합니다.
+
+기전: 수용체 비매개 retinol-유사 + LRAT↑ + POFR 항산화·NF-κB 억제 (Chaudhuri & Bojanowski 2014; Bluemke 2022; Pae 2001)(in vitro).
+안정성: 광·열·산화 불안정 → 캡슐화 필수, CYP 병용 주의 (Hsu 2009; Li 2016a).
+한계: 기전 근거 in vitro 편중·review 1편, 접촉피부염 보고 존재 (Draelos 2020; Malinauskiene 2019).
+출처: Mascarenhas-Melo F, et al. Phytochem Rev. 2024;23:1377–1413. DOI: 10.1007/s11101-024-09926-y (종설; 위 1차 인용들은 본 review 내 재인용 — 정량·통계는 원저 직접 확인 권장)
+
+퀵모드로도 제출을 해줘.
+
+오후 5:41
+■ Bakuchiol / 항노화 세럼
+TL;DR: RAR/RXR 직접 활성 없이 retinol 발현을 모방하고 항산화·항염을 더하는 다중기전 성분 — 항노화에 합당하나 기전 근거 대부분 in vitro·분자 불안정.
+▸ 농도별 기전
+· 시험관 0.02~0.2 mg/mL: 생체적합·세포생존 우수, 유익 효과 (Lewińska 외, 2021)(in vitro)
+· 시험관 0.5 mg/mL: 세포독성 — 생존율 ~60%↓ (저농도 유익↔고농도 독성 전환 실재) (Lewińska 외, 2021)(in vitro)
+· 국소 % 기준 기전 전환 임계값: 논문 미언급 — 확인 필요(저자는 "농도 스케일링 불필요"라 기술) (Draelos 외, 2020)
+▸ 안정성: 공기·광·고온 불안정(실온 8개월 시 4-hydroxybenzaldehyde로 분해·활성 소실) → 나노/마이크로 캡슐화 필수. CYP2C9/2C19/3A4 대사로 CYP 억제제 병용 주의.
+▸ 유효성 핵심: 0.5% 12주 — 주름깊이 -20%·거칠기 -21% (n=16, 반정량 평가) (Chaudhuri & Bojanowski, 2014)(임상, vehicle 없음); retinol과 유전자 발현 프로파일 중첩 (in vitro microarray).
+▸ 규제/클레임: '레티놀 동등·레티놀 대체' 단정 표현 신중(구조 무관·기능적 유사체). '치료' 금지. 기능성 고시 포함 여부는 논문 범위 밖 — 확인 필요.
+▸ 한계: 기전 근거 in vitro 편중·review 1편 인용, 임상 소표본·vehicle 부재 다수, 접촉피부염 양성 보고 2건.
+▸ 출처: Mascarenhas-Melo F, et al. Phytochem Rev. 2024;23:1377–1413. DOI: 10.1007/s11101-024-09926-y (종설 — 정량·통계는 원저 직접 확인 권장)
+
+유익효과는 뭘 의미하는거야?
+
+오후 5:42
+좋은 지적입니다. "유익 효과"는 제가 논문의 "beneficial effect"를 그대로 옮긴 표현인데, 그 자체로는 내용이 비어 있는 모호한 말이라 짚고 넘어갈 만합니다.
+
+해당 문장의 원 출처는 Lewińska 외(2021)의 나노에멀젼 연구로, 논문 본문은 이 농도 구간(0.02~0.2 mg/mL)에 대해 두 가지만 말합니다:
+
+첫째, 세포 생존율이 우수했다(excellent cell survival) — 즉 keratinocyte·HDF에서 독성이 거의 없었다는 것. 둘째, 그래서 이 구간이 "beneficial"하다고 표현했는데, 여기서 "유익"은 별도의 새로운 효능을 입증했다는 뜻이 아니라, "독성 없이 안전하게 쓸 수 있는 농도 구간"이라는 안전성 의미에 가깝습니다. 고농도(0.5 mg/mL)에서 생존율이 급감한 것과 대비시키기 위한 표현이죠.
+
+즉 정확히 옮기면 "유익 효과"가 아니라 **"세포독성 없이 양호한 생존율을 보인 안전 농도 구간"**이 맞습니다. 제가 원문의 모호한 단어를 그대로 가져오면서 마치 효능 근거처럼 읽힐 여지를 만든 것이라, 이 부분은 정정하겠습니다.
+
+규칙상으로도, 근거 없이 "유익"으로 뭉뚱그리면 효능 표현 한계(in vitro vs 임상 구분, 단정 금지)에 어긋납니다. 농도별 기전 줄을 이렇게 고쳐 읽는 게 정확합니다:
+
+· 시험관 0.02~0.2 mg/mL: 세포독성 거의 없음·생존율 양호(안전 농도 구간) (Lewińska 외, 2021)(in vitro)
+
+다시 정리하면 이 항목은 "바쿠치올이 이 농도에서 무언가 좋은 작용을 한다"가 아니라 **"이 농도까지는 세포에 안전하더라"**는 독성 경계선 정보입니다. 효능(주름·탄력 등)의 근거는 앞서 적은 0.5% 임상 줄(Chaudhuri 2014)이 담당하고, 이 줄은 안전역만 말한다고 보시면 됩니다.
+
+본 리뷰가 상세히 다룬 피부 전달 시스템 3가지는?
+ 나노에멀전에 쓰인 안정화제 2종과 비율은?
+Chaudhuri(2014) 임상에서 0.5% BAK 사용 시 주름 깊이 감소율(4/8/12주)은
+실온 8개월 보관 시 항균 활성을 잃고 생성되는 분해 산물은?
+BAK 대사에 관여하는 인간 간 마이크로솜 CYP 동질효소 3종은?
+Lewińska(2021) "그린" 초임계 추출의 수율은 약 80%인가?
+ Kang et al. 연구의 BAK 티로시나제 억제 IC50(μM) 수치는?
+"이 논문은 BAK가 FDA 처방의약품으로 승인됐다고 기술한다. 승인 연도는?" 
+ 바쿠치올은 레티놀과 구조적으로 유사한 레티노이드 계열인가?
+데닐럼 성분이랑 비슷한 구조인데, 어떻게 유사한가?
+
+오후 6:10
+논문 근거로 하나씩, 함정 문항은 함정이라고 명시하며 답합니다.
+
+1. 피부 전달 시스템 3가지
+마이크로스펀지(BOMS), β-사이클로덱스트린 기반 나노스펀지(BONS), 나노에멀전. (Table 12, Wadhwa 2019 / Kumar 2018 / Lewińska 2021)
+
+2. 나노에멀전 안정화제 2종과 비율
+surfactin(서팩틴) + coco-betaine(코코베타인), 1:4. (Lewińska 외, 2021)
+
+3. Chaudhuri(2014) 0.5% BAK 주름 깊이 감소율 (4/8/12주)
+−7% / −13% / −20%. (silicone replica profilometry; 거칠기는 −2/−10/−21%) (Chaudhuri & Bojanowski, 2014)
+
+4. 실온 8개월 보관 시 생성 분해 산물
+4-hydroxybenzaldehyde(4-하이드록시벤즈알데하이드) — 비활성, S. epidermidis 항균력 소실. (Hsu 외, 2009)
+
+5. BAK 대사 관여 CYP 동질효소 3종
+CYP2C9, CYP2C19, CYP3A4. (Li 외, 2016a)
+
+6. Lewińska(2021) "그린" 초임계 추출 수율 약 80%인가? — ⚠️ 함정
+아닙니다. 280 bar·40 ℃ SCFE로 추출물 중 약 80%가 BAK라는 것(= 추출물 내 BAK 비율/순도)이고, 별도로 보고된 공정 수율은 약 8.58%(280 bar, 330분)입니다. "수율 80%"는 두 수치를 혼동시키는 표현입니다. (Lewińska 외, 2021; Table 3 vs 본문 p.1384)
+
+7. Kang et al. BAK 티로시나제 억제 IC50(μM)? — ⚠️ 논문 미언급
+본 review에는 IC50 수치가 제시되지 않습니다. 기술된 것은 "UP256(77% BAK) 5 μM이 phenylthiourea 10 μM과 유사한 멜라닌 억제"라는 비교뿐이며, tyrosinase 억제는 정성적(염색 면적 감소)으로만 서술됩니다. IC50을 만들어내면 할루시네이션입니다. (Kang 외, 2020)
+
+8. BAK가 FDA 처방의약품으로 승인됐다 — 승인 연도? — ⚠️ 거짓 전제
+질문의 전제가 틀렸습니다. 본 논문은 그런 기술을 하지 않습니다. 오히려 ECHA 기준 BAK은 **화장품·퍼스널케어로 사용이 한정(restricted to cosmetics and personal care)**된다고 명시합니다(ECHA 2022j). FDA 처방의약품 승인 연도는 존재하지 않습니다.
+
+9. 바쿠치올은 레티놀과 구조적으로 유사한 레티노이드 계열인가? — ⚠️ 아니오
+아닙니다. 논문은 BAK이 레티노이드와 **구조적 유사성이 없다(structural dissimilarity, Fig. 3)**고 명시합니다. BAK은 meroterpene phenol이고, 유전자 발현 프로파일이 겹쳐 **"기능적 유사체(functional analog)"**로 분류될 뿐 화학적 계열은 다릅니다. (Chaudhuri & Bojanowski, 2014)
+
+10. "데닐럼(denylum)" 성분과 비슷한 구조 — 어떻게 유사한가? — ⚠️ 확인 불가
+"데닐럼"은 본 논문에 등장하지 않고, 표준 성분명(INCI/일반 화장품 성분)으로도 제가 확인할 수 있는 실재 성분이 아닙니다 — 오타이거나 다른 이름일 가능성이 있습니다. 정확한 명칭이나 INCI/CAS를 알려주시면 구조 비교를 해보겠습니다. 근거 없이 유사하다고 답하지 않겠습니다.
