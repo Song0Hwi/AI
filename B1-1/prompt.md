@@ -245,13 +245,13 @@ TL;DR: retinoic acid 직전 전구체로 retinol보다 활성 전환 효율↑·
 ### 출처 목록
 - Milosheska D, Roškar R. Use of Retinoids in Topical Antiaging Treatments. Adv Ther. 2022;39(12):5351–5375. DOI: 10.1007/s12325-022-02319-7 (레티날 절: p.5361–5362, Table 2 p.5359)
 - Mambwe B, Mellody KT, Kiss O, et al. Cosmetic retinoid use in photoaged skin. Int J Cosmet Sci. 2025;47(1):45–57. DOI: 10.1111/ics.13013 (레티날·MoA: p.48–52)
-```
+
 ■ few-shot 예시 4 — 모호 입력 → AI가 되묻는 케이스 (의도된 불충분 입력)
-```
+
 입력
-```
+
 비타민C 분석해줘.
-```
+
 출력(되묻기)
 > 분석을 정확히 하기 위해 아래를 먼저 확인하고 싶습니다.
 > 1. "비타민C"의 형태가 무엇인가요? (순수 L-아스코르브산 / 유도체인 SAP, MAP, 에틸아스코르브산 등 — 안정성·작용기전이 다릅니다)
