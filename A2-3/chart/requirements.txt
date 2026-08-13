@@ -1,0 +1,12 @@
+# C(민규) 담당 모듈이 사용
+google-genai>=2.17.0
+python-dotenv>=1.0
+
+# A(영휘) 담당 — 차트 3종 / xlsx 내보내기
+# 없어도 죽지 않는다: matplotlib 없으면 dashboard 가 차트만 건너뛰고,
+# openpyxl 없으면 export --format xlsx 가 csv 로 떨어진다.
+matplotlib>=3.7
+openpyxl>=3.1
+
+# B(세인) 담당 모듈은 표준 라이브러리만 사용한다 (추가 설치 없음)
+# A의 sqlite3 / argparse / logging 도 표준 라이브러리다.

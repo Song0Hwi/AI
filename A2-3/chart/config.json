@@ -1,0 +1,38 @@
+{
+  "duplicate_policy": "skip",
+
+  "_database_주석": "path 를 비워두면 source/db/reviews.db 를 씁니다. OneDrive·네트워크 드라이브 위에서 disk I/O error 가 나면 로컬 경로로 바꾸세요. 환경변수 REVIEW_DB_PATH 가 더 우선합니다.",
+  "database": {
+    "path": ""
+  },
+
+  "cleaning": {
+    "min_review_length": 5,
+    "rating_min": 1,
+    "rating_max": 5,
+    "duplicate_keys": ["product_name", "review_text", "review_date"]
+  },
+
+  "_ai_주석": "연결 완료(2026-08-12). 감정 분석·인사이트 추출은 항상 실제 Gemini 를 부릅니다. 키가 없으면 analyze/extract 는 실행되지 않습니다.",
+  "ai": {
+    "model": "gemini-3.6-flash",
+    "api_key_env": "GEMINI_API_KEY",
+    "extract_max_reviews": 60
+  },
+
+  "visualization": {
+    "save_format": "png",
+    "dpi": 150
+  },
+
+  "analysis": {
+    "default_limit": 20,
+    "top_n": 5
+  },
+
+  "logging": {
+    "level": "INFO",
+    "to_file": true,
+    "filename": "app.log"
+  }
+}
