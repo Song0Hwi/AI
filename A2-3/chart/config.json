@@ -1,0 +1,50 @@
+{
+  "duplicate_policy": "skip",
+
+  "_database_주석": "path 를 비워두면 chart/db/reviews.db 를 씁니다. OneDrive·네트워크 드라이브 위에서 disk I/O error 가 나면 로컬 경로로 바꾸세요. 환경변수 REVIEW_DB_PATH 가 더 우선합니다.",
+  "database": {
+    "path": ""
+  },
+
+  "cleaning": {
+    "min_review_length": 5,
+    "rating_min": 1,
+    "rating_max": 5,
+    "duplicate_keys": ["product_name", "review_text", "review_date"]
+  },
+
+  "_ai_주석": "연결 완료(2026-08-12). 감정 분석·인사이트 추출은 항상 실제 Gemini 를 부릅니다. 키가 없으면 analyze/extract 는 실행되지 않습니다.",
+  "ai": {
+    "model": "gemini-3.6-flash",
+    "api_key_env": "GEMINI_API_KEY",
+    "extract_max_reviews": 60
+  },
+
+  "visualization": {
+    "save_format": "png",
+    "dpi": 150
+  },
+
+  "analysis": {
+    "default_limit": 20,
+    "top_n": 5
+  },
+
+  "_alerts_주석": "임계치와 대응 절차 설명은 chart/README.md 4.10 절에 있습니다. 이 데이터셋(99건) 기준 출발점이고, 제품군이나 수집 채널이 바뀌면 다시 잡아야 합니다.",
+  "alerts": {
+    "negative_ratio_warn": 0.15,
+    "negative_ratio_critical": 0.30,
+    "spike_delta": 0.10,
+    "min_bucket_size": 5,
+    "group_negative_ratio_warn": 0.30,
+    "min_group_size": 5,
+    "agreement_warn": 0.60,
+    "confidence_warn": 0.65
+  },
+
+  "logging": {
+    "level": "INFO",
+    "to_file": true,
+    "filename": "app.log"
+  }
+}
