@@ -25,5 +25,30 @@
 #  .gitignore 파일을 생성하여 불필요한 파일을 제외한다.
 
 #  README.md 파일을 생성하고 프로젝트 제목을 작성한다.
+# PS C:\Users\user\Desktop\A1-1\AI\A1-1> echo " # A1-1 project " > README.md
+
 
 #  공개 샘플 저장소 1개를 clone으로 내려받아 폴더 구조와 로그를 확인한다. (확인 후 삭제 가능)
+# PS C:\Users\user\Desktop\A1-1\AI\A1-1> git clone https://github.com/octocat/Hello-World.git 
+# Cloning into 'Hello-World'...
+# remote: Enumerating objects: 13, done.
+# remote: Total 13 (delta 0), reused 0 (delta 0), pack-reused 13 (from 1)
+# Receiving objects: 100% (13/13), done.
+# PS C:\Users\user\Desktop\A1-1\AI\A1-1> cd Hello-World
+# PS C:\Users\user\Desktop\A1-1\AI\A1-1\Hello-World> ls
+
+
+#     디렉터리: C:\Users\user\Desktop\A1-1\AI\A1-1\Hello-World
+
+
+# Mode                 LastWriteTime         Length Name                                        
+# ----                 -------------         ------ ----                                        
+# -a----      2026-08-28   오후 7:04             14 README                                      
+
+
+# PS C:\Users\user\Desktop\A1-1\AI\A1-1\Hello-World> git log --oneline
+# 7fd1a60 (HEAD -> master, origin/master, origin/HEAD) Merge pull request #6 from Spaceghost/patch-1
+# 7629413 New line at end of file. --Signed off by Spaceghost
+# 553c207 first commit
+# PS C:\Users\user\Desktop\A1-1\AI\A1-1\Hello-World> cd ..
+# PS C:\Users\user\Desktop\A1-1\AI\A1-1> Remove-Item -Recurse -Force Hello-World

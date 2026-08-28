@@ -40,9 +40,10 @@ print("Hello")
 # branch.main.vscode-merge-base=origin/main
 
 #  Git 사용자 정보(이름, 이메일)를 설정한다.
-# PS C:\Users\user\Desktop\A1-1\AI> git config --global init.defaultBranch main
-# PS C:\Users\user\Desktop\A1-1\AI> git branch
-# * main
+# PS C:\Users\user\Desktop\A1-1  \AI> git config user.name 
+# Song0Hwi
+# PS C:\Users\user\Desktop\A1-1\AI> git config user.email
+# iamsongyounghwi@gmail.com
 
 
 #  기본 브랜치 이름을 main으로 설정한다.
@@ -52,6 +53,8 @@ print("Hello")
 
 
 #  VSCode에서 GitHub 계정으로 로그인하고 연동이 정상적으로 되었는지 확인한다.
-
+# PS C:\Users\user\Desktop\A1-1\AI> git remote -v
+# origin  https://github.com/Song0Hwi/AI.git (fetch)
+# origin  https://github.com/Song0Hwi/AI.git (push)
 
 
