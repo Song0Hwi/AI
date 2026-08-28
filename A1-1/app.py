@@ -44,4 +44,31 @@ class PromptApp:
         label, handler = action
         handler()
 
+    def exit_app(self):
+        print("\n프로그램을 종료합니다.")
+        self.running = False
+
 # === 각 기능 ===
+
+    # ---------- 각 기능 (이후 미션에서 구현) ----------
+
+    def add_prompt(self):
+        print("\n[준비 중] 4.5에서 구현합니다.")
+
+    def show_list(self):
+        print("\n[준비 중] 4.6에서 구현합니다.")
+
+    def show_by_category(self):
+        print("\n[준비 중] 4.7에서 구현합니다.")
+
+    def search_prompt(self):
+        print("\n[준비 중] 4.8에서 구현합니다.")
+
+    def show_detail(self):
+        print("\n[준비 중] 4.9에서 구현합니다.")
+
+    def toggle_favorite(self):
+        print("\n[준비 중] 4.10에서 구현합니다.")
+
+    def show_favorites(self):
+        print("\n[준비 중] 4.10에서 구현합니다.")
