@@ -16,7 +16,7 @@ class PromptApp:
             "3": ("카테고리별 조회", self.show_by_category),
             "4": ("프롬프트 검색", self.search_prompt),
             "5": ("프롬프트 상세 보기", self.show_detail),
-            "6": ("즐겨찾기 등록/해제", self.toggle_favorite),
+            "6": ("즐겨찾기 관리", self.manage_favorite),
             "7": ("즐겨찾기 목록", self.show_favorites),
             "0": ("종료", self.exit_app),
         }
@@ -189,11 +189,79 @@ class PromptApp:
         self.print_prompts(found)
         print(f"\n{len(found)}개의 프롬프트를 찾았습니다.")
 
-    def show_detail(self):
-        print("\n[준비 중] 4.9에서 구현합니다.")
+    # ---------- 4.9 프롬프트 상세 보기 ----------
 
-    def toggle_favorite(self):
-        print("\n[준비 중] 4.10에서 구현합니다.")
+    LINE = "─" * 28      # 클래스 상단에 추가
+
+    def show_detail(self):
+        print("\n=== 프롬프트 상세 보기 ===")
+
+        if not self.store.prompts:
+            print("등록된 프롬프트가 없습니다.")
+            return
+
+        prompt = self.ask_prompt("번호 입력")
+        if prompt is None:
+            return
+
+        print()
+        print(self.LINE)
+        print(f"제목: {prompt['title']}")
+        print(f"카테고리: {prompt['category']}")
+        print(f"즐겨찾기: {'⭐' if prompt['favorite'] else '없음'}")
+        print(self.LINE)
+        print("내용:")
+        print(prompt["content"])
+        print(self.LINE)
+
+    # ---------- 입력 보조 ----------
+
+    def ask_index(self, label):
+        """번호를 받아 0-based 인덱스로 반환. 잘못된 입력이면 None."""
+        choice = input(f"{label}: ").strip()
+
+        if not choice.isdigit():
+            print("[안내] 숫자를 입력해 주세요.")
+            return None
+
+        index = int(choice) - 1
+        if self.store.get(index) is None:
+            print(f"[안내] 1 ~ {len(self.store.prompts)} 사이의 번호를 입력해 주세요.")
+            return None
+
+        return index
+
+    def ask_prompt(self, label):
+        """번호를 받아 프롬프트 자체를 반환. 실패 시 None."""
+        index = self.ask_index(label)
+        if index is None:
+            return None
+        return self.store.get(index)
+
+    # ---------- 4.10 즐겨찾기 관리 ----------
+
+    def manage_favorite(self):
+        print("\n=== 즐겨찾기 관리 ===")
+
+        if not self.store.prompts:
+            print("등록된 프롬프트가 없습니다.")
+            return
+
+        index = self.ask_index("프롬프트 번호 입력")
+        if index is None:
+            return
+
+        prompt, is_favorite = self.store.toggle_favorite(index)
+        state = "추가했습니다" if is_favorite else "해제했습니다"
+        print(f"'{prompt['title']}' 프롬프트를 즐겨찾기에 {state}!")
 
     def show_favorites(self):
-        print("\n[준비 중] 4.10에서 구현합니다.")
+        print("\n=== 즐겨찾기 목록 ===")
+
+        found = self.store.get_favorites()
+        if not found:
+            print("즐겨찾기된 프롬프트가 없습니다.")
+            return
+
+        self.print_prompts(found)
+        print(f"\n총 {len(found)}개의 즐겨찾기")

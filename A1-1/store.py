@@ -34,3 +34,20 @@ class PromptStore:
             p for p in self.prompts
             if keyword in p["title"].lower() or keyword in p["content"].lower()
         ]
+
+    def get(self, index):
+        """0-based 인덱스로 하나 반환. 범위 밖이면 None."""
+        if 0 <= index < len(self.prompts):
+            return self.prompts[index]
+        return None
+
+    def get_favorites(self):
+        return [p for p in self.prompts if p["favorite"]]
+
+    def toggle_favorite(self, index):
+        """즐겨찾기를 뒤집고 (프롬프트, 새 상태)를 반환. 실패 시 (None, None)."""
+        prompt = self.get(index)
+        if prompt is None:
+            return None, None
+        prompt["favorite"] = not prompt["favorite"]
+        return prompt, prompt["favorite"]
