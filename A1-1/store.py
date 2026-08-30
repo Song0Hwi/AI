@@ -24,3 +24,6 @@ class PromptStore:
 
     def is_empty(self):
         return len(self.prompts) == 0
+
+    def filter_by_category(self, category):
+        return [p for p in self.prompts if p["category"] == category]

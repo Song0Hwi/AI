@@ -92,12 +92,13 @@ class PromptApp:
                 return value
             print("[안내] 값이 비어 있습니다. 다시 입력해 주세요.")
 
-    def select_category(self):
-        """카테고리를 고르거나 직접 입력한다. 취소 시 None."""
+    def select_category(self, allow_custom=True):
+        """카테고리를 고른다. 취소 시 None."""
         print()
         for number, name in enumerate(PromptStore.CATEGORIES, start=1):
             print(f"{number}) {name}")
-        print("d) 직접 입력")
+        if allow_custom:
+            print("d) 직접 입력")
 
         while True:
             choice = input("선택 (취소: 0): ").strip()
@@ -106,7 +107,7 @@ class PromptApp:
                 print("[안내] 취소했습니다.")
                 return None
 
-            if choice.lower() == "d":
+            if allow_custom and choice.lower() == "d":
                 return self.input_required("카테고리명")
 
             if choice.isdigit():
@@ -133,16 +134,41 @@ class PromptApp:
     # ---------- 출력 보조 ----------
 
     @staticmethod
-    def print_prompts(prompts):
+    def print_prompts(prompts, show_category=True):
         for number, prompt in enumerate(prompts, start=1):
             star = " ⭐" if prompt["favorite"] else ""
-            print(f"{number}. [{prompt['category']}] {prompt['title']}{star}")
+            if show_category:
+                print(f"{number}. [{prompt['category']}] {prompt['title']}{star}")
+            else:
+                print(f"{number}. {prompt['title']}{star}")
 
+# git checkout -b feature/prompt-list  
 
+# git add .
 
+# git commit -m "4.6"
+
+# git checkout main
+
+# git merge feature/prompt-list  
+
+    # ---------- 4.7 카테고리별 조회 ----------
 
     def show_by_category(self):
-        print("\n[준비 중] 4.7에서 구현합니다.")
+        print("\n=== 카테고리별 조회 ===")
+
+        category = self.select_category(allow_custom=False)
+        if category is None:
+            return
+
+        found = self.store.filter_by_category(category)
+        if not found:
+            print(f"\n[{category}] 카테고리에 등록된 프롬프트가 없습니다.")
+            return
+
+        print(f"\n[{category}] 카테고리 프롬프트:")
+        self.print_prompts(found, show_category=False)
+        print(f"\n총 {len(found)}개의 프롬프트")
 
     def search_prompt(self):
         print("\n[준비 중] 4.8에서 구현합니다.")
