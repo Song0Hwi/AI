@@ -1,10 +1,14 @@
-
+from store import PromptStore
 
 class PromptApp:
     """프로그램의 흐름을 담당하는 클래스"""
 
     def __init__(self):
         self.running = True
+
+        self.store = PromptStore() 
+
+
         # 번호: (메뉴 이름, 실행할 메서드)
         self.actions = {
             "1": ("프롬프트 추가", self.add_prompt),
@@ -19,7 +23,8 @@ class PromptApp:
 
 
 
-# ===실행 루프===
+    # ---------- 실행 루프 ----------
+
 
     def run(self):
         while self.running:
@@ -48,15 +53,93 @@ class PromptApp:
         print("\n프로그램을 종료합니다.")
         self.running = False
 
-# === 각 기능 ===
+
+
 
     # ---------- 각 기능 (이후 미션에서 구현) ----------
 
+    # ---------- 4.5 프롬프트 추가 ----------
+
     def add_prompt(self):
-        print("\n[준비 중] 4.5에서 구현합니다.")
+        print("\n=== 프롬프트 추가 ===")
+
+        title = self.input_required("제목")
+        if title is None:
+            return
+
+        content = self.input_required("내용")
+        if content is None:
+            return
+
+        category = self.select_category()
+        if category is None:
+            return
+
+        self.store.add(title, content, category)
+        print("\n프롬프트가 추가되었습니다!")
+
+    # ---------- 입력 보조 ----------
+
+    @staticmethod
+    def input_required(label):
+        """비어 있으면 다시 물어본다. 0을 입력하면 None(취소)."""
+        while True:
+            value = input(f"{label} (취소: 0): ").strip()
+            if value == "0":
+                print("[안내] 취소했습니다.")
+                return None
+            if value:
+                return value
+            print("[안내] 값이 비어 있습니다. 다시 입력해 주세요.")
+
+    def select_category(self):
+        """카테고리를 고르거나 직접 입력한다. 취소 시 None."""
+        print()
+        for number, name in enumerate(PromptStore.CATEGORIES, start=1):
+            print(f"{number}) {name}")
+        print("d) 직접 입력")
+
+        while True:
+            choice = input("선택 (취소: 0): ").strip()
+
+            if choice == "0":
+                print("[안내] 취소했습니다.")
+                return None
+
+            if choice.lower() == "d":
+                return self.input_required("카테고리명")
+
+            if choice.isdigit():
+                index = int(choice) - 1
+                if 0 <= index < len(PromptStore.CATEGORIES):
+                    return PromptStore.CATEGORIES[index]
+
+            print("[안내] 목록에 있는 번호를 입력해 주세요.")
+
+
+ 
+    # ---------- 4.6 프롬프트 목록 ----------
 
     def show_list(self):
-        print("\n[준비 중] 4.6에서 구현합니다.")
+        print("\n=== 프롬프트 목록 ===")
+
+        if self.store.is_empty():
+            print("등록된 프롬프트가 없습니다.")
+            return
+
+        self.print_prompts(self.store.get_all())
+        print(f"\n총 {self.store.count()}개의 프롬프트")
+
+    # ---------- 출력 보조 ----------
+
+    @staticmethod
+    def print_prompts(prompts):
+        for number, prompt in enumerate(prompts, start=1):
+            star = " ⭐" if prompt["favorite"] else ""
+            print(f"{number}. [{prompt['category']}] {prompt['title']}{star}")
+
+
+
 
     def show_by_category(self):
         print("\n[준비 중] 4.7에서 구현합니다.")
