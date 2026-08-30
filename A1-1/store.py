@@ -27,3 +27,10 @@ class PromptStore:
 
     def filter_by_category(self, category):
         return [p for p in self.prompts if p["category"] == category]
+
+    def search(self, keyword):
+        keyword = keyword.lower()
+        return [
+            p for p in self.prompts
+            if keyword in p["title"].lower() or keyword in p["content"].lower()
+        ]

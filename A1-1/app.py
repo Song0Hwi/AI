@@ -170,8 +170,24 @@ class PromptApp:
         self.print_prompts(found, show_category=False)
         print(f"\n총 {len(found)}개의 프롬프트")
 
+    # ---------- 4.8 프롬프트 검색 ----------
+
     def search_prompt(self):
-        print("\n[준비 중] 4.8에서 구현합니다.")
+        print("\n=== 프롬프트 검색 ===")
+
+        keyword = input("검색어: ").strip()
+        if not keyword:
+            print("[안내] 검색어를 입력해 주세요.")
+            return
+
+        found = self.store.search(keyword)
+        if not found:
+            print(f"\n'{keyword}'에 대한 검색 결과가 없습니다.")
+            return
+
+        print("\n검색 결과:")
+        self.print_prompts(found)
+        print(f"\n{len(found)}개의 프롬프트를 찾았습니다.")
 
     def show_detail(self):
         print("\n[준비 중] 4.9에서 구현합니다.")
