@@ -56,9 +56,9 @@ class PromptApp:
 
 
 
-    # ---------- 각 기능 (이후 미션에서 구현) ----------
+    # ---------- 각 기능 ----------
 
-    # ---------- 4.5 프롬프트 추가 ----------
+        # ---------- 4.5 프롬프트 추가 ----------
 
     def add_prompt(self):
         print("\n=== 프롬프트 추가 ===")
@@ -67,7 +67,7 @@ class PromptApp:
         if title is None:
             return
 
-        content = self.input_required("내용")
+        content = self.input_multiline("내용")
         if content is None:
             return
 
@@ -82,15 +82,58 @@ class PromptApp:
 
     @staticmethod
     def input_required(label):
-        """비어 있으면 다시 물어본다. 0을 입력하면 None(취소)."""
+        """한 줄을 입력받는다. 비어 있으면 재입력. 0을 입력하면 None(취소)."""
         while True:
             value = input(f"{label} (취소: 0): ").strip()
+
             if value == "0":
                 print("[안내] 취소했습니다.")
                 return None
+
             if value:
                 return value
+
             print("[안내] 값이 비어 있습니다. 다시 입력해 주세요.")
+
+    @staticmethod
+    def input_multiline(label):
+        """여러 줄을 입력받는다.
+        :q 완료 / :d 마지막 줄 삭제 / :c 전체 삭제 / 첫 줄에서 0 입력 시 취소
+        """
+        print(f"{label} (완료: :q / 마지막 줄 삭제: :d / 전체 삭제: :c / 취소: 0)")
+
+        lines = []
+        while True:
+            line = input()
+            command = line.strip()
+
+            if command == "0" and not lines:
+                print("[안내] 취소했습니다.")
+                return None
+
+            if command == ":d":
+                if lines:
+                    removed = lines.pop()
+                    print(f"[삭제] {removed}")
+                else:
+                    print("[안내] 삭제할 줄이 없습니다.")
+                continue
+
+            if command == ":c":
+                if lines:
+                    lines.clear()
+                    print("[삭제] 전체 내용을 비웠습니다. 처음부터 다시 입력해 주세요.")
+                else:
+                    print("[안내] 삭제할 내용이 없습니다.")
+                continue
+
+            if command == ":q":
+                if lines:
+                    return "\n".join(lines)
+                print("[안내] 내용이 비어 있습니다. 다시 입력해 주세요.")
+                continue
+
+            lines.append(line)
 
     def select_category(self, allow_custom=True):
         """카테고리를 고른다. 취소 시 None."""
@@ -116,7 +159,6 @@ class PromptApp:
                     return PromptStore.CATEGORIES[index]
 
             print("[안내] 목록에 있는 번호를 입력해 주세요.")
-
 
  
     # ---------- 4.6 프롬프트 목록 ----------
