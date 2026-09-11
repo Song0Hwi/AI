@@ -8,6 +8,12 @@ class PromptApp:
 
         self.store = PromptStore() 
 
+        count, error = self.store.load_from_json()
+        if error is None:
+            print(f"[안내] 저장된 프롬프트 {count}개를 불러왔습니다.")
+
+        self.actions = { ... }
+
 
         # 번호: (메뉴 이름, 실행할 메서드)
         self.actions = {
@@ -18,6 +24,12 @@ class PromptApp:
             "5": ("프롬프트 상세 보기", self.show_detail),
             "6": ("즐겨찾기 관리", self.manage_favorite),
             "7": ("즐겨찾기 목록", self.show_favorites),
+            "8": ("프롬프트 수정", self.edit_prompt),
+            "9": ("프롬프트 삭제", self.delete_prompt),
+            "10": ("조회수 Top", self.show_top_viewed),
+            "11": ("파일로 저장", self.save_data),
+            "12": ("파일에서 불러오기", self.load_data),
+            "13": ("Markdown 내보내기", self.export_markdown),
             "0": ("종료", self.exit_app),
         }
 
@@ -58,7 +70,7 @@ class PromptApp:
 
     # ---------- 각 기능 ----------
 
-        # ---------- 4.5 프롬프트 추가 ----------
+    # ---------- 4.5 프롬프트 추가 ----------
 
     def add_prompt(self):
         print("\n=== 프롬프트 추가 ===")
@@ -236,25 +248,28 @@ class PromptApp:
     LINE = "─" * 28      # 클래스 상단에 추가
 
     def show_detail(self):
-        print("\n=== 프롬프트 상세 보기 ===")
+            print("\n=== 프롬프트 상세 보기 ===")
 
-        if not self.store.prompts:
-            print("등록된 프롬프트가 없습니다.")
-            return
+            if not self.store.prompts:
+                print("등록된 프롬프트가 없습니다.")
+                return
 
-        prompt = self.ask_prompt("번호 입력")
-        if prompt is None:
-            return
+            index = self.ask_index("번호 입력")
+            if index is None:
+                return
 
-        print()
-        print(self.LINE)
-        print(f"제목: {prompt['title']}")
-        print(f"카테고리: {prompt['category']}")
-        print(f"즐겨찾기: {'⭐' if prompt['favorite'] else '없음'}")
-        print(self.LINE)
-        print("내용:")
-        print(prompt["content"])
-        print(self.LINE)
+            prompt = self.store.increase_view(index)      # ← 조회수 +1 후 반환
+
+            print()
+            print(self.LINE)
+            print(f"제목: {prompt['title']}")
+            print(f"카테고리: {prompt['category']}")
+            print(f"즐겨찾기: {'⭐' if prompt['favorite'] else '없음'}")
+            print(f"조회수: {prompt['view_count']}")
+            print(self.LINE)
+            print("내용:")
+            print(prompt["content"])
+            print(self.LINE)
 
     # ---------- 입력 보조 ----------
 
@@ -307,3 +322,168 @@ class PromptApp:
 
         self.print_prompts(found)
         print(f"\n총 {len(found)}개의 즐겨찾기")
+
+        # ---------- 보너스 2: 프롬프트 수정 ----------
+
+    def edit_prompt(self):
+        print("\n=== 프롬프트 수정 ===")
+
+        if not self.store.prompts:
+            print("등록된 프롬프트가 없습니다.")
+            return
+
+        index = self.ask_index("수정할 프롬프트 번호")
+        if index is None:
+            return
+
+        prompt = self.store.get(index)
+        print(f"\n현재 제목: {prompt['title']}")
+        print(f"현재 카테고리: {prompt['category']}")
+
+        fields = self.select_edit_fields()
+        if not fields:
+            print("[안내] 수정을 취소했습니다.")
+            return
+
+        new_title = None
+        new_content = None
+        new_category = None
+
+        if "title" in fields:
+            new_title = self.input_required("새 제목")
+            if new_title is None:
+                return
+
+        if "content" in fields:
+            new_content = self.input_multiline("새 내용")
+            if new_content is None:
+                return
+
+        if "category" in fields:
+            new_category = self.select_category()
+            if new_category is None:
+                return
+
+        self.store.update(index, new_title, new_content, new_category)
+        print("\n프롬프트가 수정되었습니다!")
+
+    @staticmethod
+    def select_edit_fields():
+        """수정할 항목을 고른다. 취소나 잘못된 입력이면 빈 리스트."""
+        print("\n1) 제목  2) 내용  3) 카테고리  4) 전체")
+        choice = input("수정할 항목 (취소: 0): ").strip()
+
+        options = {
+            "1": ["title"],
+            "2": ["content"],
+            "3": ["category"],
+            "4": ["title", "content", "category"],
+        }
+        return options.get(choice, [])
+
+    # ---------- 보너스 2: 프롬프트 삭제 ----------
+
+    def delete_prompt(self):
+        print("\n=== 프롬프트 삭제 ===")
+
+        if not self.store.prompts:
+            print("등록된 프롬프트가 없습니다.")
+            return
+
+        index = self.ask_index("삭제할 프롬프트 번호")
+        if index is None:
+            return
+
+        prompt = self.store.get(index)
+        confirm = input(f"'{prompt['title']}'을(를) 삭제할까요? (y/n): ").strip().lower()
+
+        if confirm != "y":
+            print("[안내] 삭제를 취소했습니다.")
+            return
+
+        removed = self.store.delete(index)
+        print(f"\n'{removed['title']}' 프롬프트를 삭제했습니다.")
+
+    # ---------- 보너스 2: 조회수 Top ----------
+
+    def show_top_viewed(self):
+        print("\n=== 조회수 Top ===")
+
+        found = self.store.get_top_viewed()
+        if not found:
+            print("아직 조회된 프롬프트가 없습니다.")
+            return
+
+        for rank, prompt in enumerate(found, start=1):
+            star = " ⭐" if prompt["favorite"] else ""
+            print(f"{rank}. [{prompt['category']}] {prompt['title']}{star} — {prompt['view_count']}회")
+
+    # ---------- 보너스 1: 저장 / 불러오기 ----------
+
+    def save_data(self):
+        print("\n=== 파일로 저장 ===")
+
+        error = self.store.save_to_json()
+        if error:
+            print(f"[오류] {error}")
+            return
+
+        print(f"{len(self.store.prompts)}개의 프롬프트를 "
+              f"'{PromptStore.DATA_FILE}'에 저장했습니다.")
+
+    def load_data(self):
+        print("\n=== 파일에서 불러오기 ===")
+
+        if self.store.prompts:
+            confirm = input("현재 목록이 파일 내용으로 대체됩니다. 계속할까요? (y/n): ")
+            if confirm.strip().lower() != "y":
+                print("[안내] 불러오기를 취소했습니다.")
+                return
+
+        count, error = self.store.load_from_json()
+        if error:
+            print(f"[오류] {error}")
+            return
+
+        print(f"{count}개의 프롬프트를 불러왔습니다.")
+
+    # ---------- 보너스 1: Markdown 내보내기 ----------
+
+    def export_markdown(self):
+        print("\n=== Markdown 내보내기 ===")
+        print("1) 한 파일로 묶기  2) 카테고리별 파일로 나누기")
+
+        choice = input("선택 (취소: 0): ").strip()
+
+        if choice == "1":
+            error = self.store.export_markdown()
+            if error:
+                print(f"[오류] {error}")
+                return
+            print("'prompts.md' 파일로 내보냈습니다.")
+
+        elif choice == "2":
+            count, error = self.store.export_markdown_by_category()
+            if error:
+                print(f"[오류] {error}")
+                return
+            print(f"'exports' 폴더에 {count}개 파일을 만들었습니다.")
+
+        elif choice == "0":
+            print("[안내] 취소했습니다.")
+
+        else:
+            print("[안내] 1 또는 2를 입력해 주세요.")
+
+
+    # ---------- 자동 저장 ----------
+
+    def exit_app(self):
+        error = self.store.save_to_json()
+        if error:
+            print(f"\n[경고] {error}")
+        else:
+            print("\n프롬프트를 저장했습니다.")
+
+        print("프로그램을 종료합니다.")
+        self.running = False
