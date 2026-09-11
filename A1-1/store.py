@@ -9,6 +9,9 @@ class PromptStore:
     DATA_FILE = "prompts.json"
     REQUIRED_KEYS = ("title", "content", "category", "favorite", "view_count")
 
+    def __init__(self):
+        self.prompts = []
+        self._load_defaults()
     
     def add(self, title, content, category):
         prompt = {
