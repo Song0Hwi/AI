@@ -1,0 +1,21 @@
+# 환경변수 및 보안 키 파일 (절대 커밋 금지)
+.env
+.env.*
+!.env.example
+*firebase-adminsdk*.json
+serviceAccountKey.json
+
+# 대용량 원본 CSV 데이터 (전처리된 data/119_timeseries.csv만 포함)
+119 신고접수 현황_*.csv
+
+# Python 캐시 및 가상환경
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+.pytest_cache/
+
+# 로컬 백업/캐시 스토리지
+data/local_store_backup.json

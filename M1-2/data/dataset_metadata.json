@@ -1,0 +1,69 @@
+{
+  "dataset_title": "소방청 전국 119 신고접수 현황 시계열 데이터 (2022~2025)",
+  "source": "공공데이터포털 / 소방청 (119 신고접수 현황_2022~2025_전국.csv)",
+  "total_raw_size_gb": 7.33,
+  "total_sampled_rows": 508912,
+  "timeseries_points_count": 151,
+  "period_start": "2022-01-03",
+  "period_end": "2025-09-15",
+  "year_summary": {
+    "2022": {
+      "file_size_mb": 973.4,
+      "sampled_rows": 151492,
+      "scale_factor": 31.15,
+      "estimated_total_records": 4718957
+    },
+    "2023": {
+      "file_size_mb": 374.3,
+      "sampled_rows": 142569,
+      "scale_factor": 11.98,
+      "estimated_total_records": 1707415
+    },
+    "2024": {
+      "file_size_mb": 3542.2,
+      "sampled_rows": 106979,
+      "scale_factor": 113.35,
+      "estimated_total_records": 12126192
+    },
+    "2025": {
+      "file_size_mb": 2618.9,
+      "sampled_rows": 107872,
+      "scale_factor": 83.8,
+      "estimated_total_records": 9040060
+    }
+  },
+  "top_regions": {
+    "경기도": 99042,
+    "서울특별시": 81553,
+    "부산광역시": 41392,
+    "경상남도": 36174,
+    "경상북도": 32026,
+    "충청남도": 28423,
+    "인천광역시": 27837,
+    "전라남도": 23650,
+    "대구광역시": 23128,
+    "충청북도": 18505
+  },
+  "season_distribution": {
+    "겨울": 230921,
+    "여름": 88891,
+    "봄": 136161,
+    "가을": 52939
+  },
+  "day_of_week_distribution": {
+    "월요일": 76106,
+    "일요일": 77536,
+    "수요일": 70853,
+    "화요일": 70928,
+    "토요일": 75846,
+    "목요일": 68263,
+    "금요일": 69380
+  },
+  "peak_hours_top5": {
+    "13시": 31471,
+    "10시": 30889,
+    "14시": 30417,
+    "16시": 30336,
+    "09시": 30121
+  }
+}

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>119 AI 데이터 비서 — 시계열 분석 & 맞춤형 AI 챗봇</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- 콜드스타트 안내 및 서버 상태 상단 바 (요구사항 8-4) -->
+  <div id="cold-start-banner" class="top-notice-bar">
+    <div class="notice-left">
+      <span id="server-status-dot" class="status-dot online"></span>
+      <span id="server-status-text">백엔드 &amp; Firestore 연결 확인 중...</span>
+      <span class="notice-divider">|</span>
+      <span class="cold-start-tip">💡 안내: Render 무료 티어 배포 환경에서는 첫 요청 시 슬립 해제(Cold Start)로 약 30~50초가 소요될 수 있습니다.</span>
+    </div>
+    <div class="notice-right">
+      <button id="btn-api-config" class="btn-ghost-xs" title="API 서버 주소 설정">⚙️ API 서버 설정</button>
+      <a href="/docs" target="_blank" class="btn-ghost-xs">📄 Swagger UI (/docs)</a>
+    </div>
+  </div>
+
+  <!-- 메인 헤더 -->
+  <header class="app-header">
+    <div class="brand-area">
+      <div class="brand-logo">🚒</div>
+      <div>
+        <h1>119 AI 데이터 비서 <span class="badge-accent">M1-2</span></h1>
+        <p class="subtitle">전국 119 신고접수 시계열 데이터(2022~2025) 기반 컨텍스트 주입 &amp; Function Calling AI 서비스</p>
+      </div>
+    </div>
+
+    <!-- 뷰 전환 네비게이션 탭 -->
+    <nav class="view-tabs" role="tablist">
+      <button class="tab-btn active" data-view="all">📊 통합 워크스페이스</button>
+      <button class="tab-btn" data-view="chat">💬 데이터 기반 AI 채팅</button>
+      <button class="tab-btn" data-view="crud">🗂️ 데이터 관리 (CRUD)</button>
+      <button class="tab-btn" data-view="history">🕒 대화 기록 &amp; 불러오기</button>
+    </nav>
+
+    <div class="header-actions">
+      <button id="btn-export-csv" class="btn-secondary" title="CSV 다운로드">📥 CSV 내보내기</button>
+      <button id="btn-export-json" class="btn-secondary" title="JSON 다운로드">📦 JSON 내보내기</button>
+      <button id="btn-theme-toggle" class="btn-icon" title="다크/라이트 모드 전환">☀️ 라이트 모드</button>
+    </div>
+  </header>
+
+  <!-- 토스트 알림 컨테이너 -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- 메인 컨테이너 -->
+  <main class="main-container">
+    <!-- 1. 데이터 요약(Summary) KPI 섹션 — 모든 화면 상단에 항상 표시 (요구사항 9-4 & 프롬프트 주입 컨텍스트 시각화) -->
+    <section class="summary-section" aria-label="데이터 요약">
+      <div class="section-title-row">
+        <div class="section-title-left">
+          <h2>📌 실시간 시계열 데이터 요약 <span class="sub-pill">GET /api/data/summary (시스템 프롬프트 자동 주입)</span></h2>
+        </div>
+        <div class="section-title-right">
+          <button id="btn-toggle-prompt-preview" class="btn-ghost-sm">🔍 시스템 프롬프트 주입 원문 보기</button>
+          <button id="btn-refresh-all" class="btn-ghost-sm">🔄 새로고침</button>
+        </div>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <span class="kpi-label">데이터 기간 (Period)</span>
+          <strong id="kpi-period" class="kpi-value">-</strong>
+          <span id="kpi-count" class="kpi-sub">총 -개 주간 데이터 포인트</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">주간 평균 / 누적 합계</span>
+          <strong id="kpi-average" class="kpi-value">-</strong>
+          <span id="kpi-total" class="kpi-sub">누적 합계: -건</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">최대(Peak) / 최소(Min) 기록</span>
+          <strong id="kpi-max" class="kpi-value highlight-up">-</strong>
+          <span id="kpi-min" class="kpi-sub">최소: -</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">최근 트렌드 &amp; 변동성(CV)</span>
+          <strong id="kpi-trend" class="kpi-value trend-text">-</strong>
+          <span id="kpi-volatility" class="kpi-sub">표준편차: - | 변동계수(CV): -%</span>
+        </div>
+      </div>
+
+      <!-- 프롬프트 컨텍스트 주입 미리보기 박스 (토글) -->
+      <div id="prompt-preview-box" class="prompt-preview-box hidden">
+        <div class="prompt-preview-header">
+          <span>🤖 <strong>컨텍스트 주입(Context Injection) 시스템 프롬프트 실시간 구조</strong></span>
+          <span class="badge-tag">AI 챗봇 호출 시 자동 삽입</span>
+        </div>
+        <pre id="prompt-preview-code"></pre>
+      </div>
+    </section>
+
+    <!-- 2. 메인 2단 그리드: 좌측(시각화 차트 + 데이터 CRUD) / 우측(대화 기록 + AI 채팅) -->
+    <div id="workspace-grid" class="workspace-grid">
+      <!-- 좌측 컬럼: 시계열 시각화 차트 & 데이터 관리(CRUD) -->
+      <div class="left-column">
+        <!-- [보너스 2] 시계열 추세 & 이동평균·예측 시각화 카드 -->
+        <section id="panel-chart" class="card-panel">
+          <div class="panel-header">
+            <div>
+              <h3>📈 전국 119 신고접수 시계열 추세 &amp; 이동평균·예측 그래프</h3>
+              <p class="panel-desc">주간 접수량, 4주/12주 이동평균선(MA), Z-score 이상치(급증/급감) 및 향후 4주 예측</p>
+            </div>
+            <div class="chart-legend">
+              <span class="legend-item"><i class="dot-actual"></i>주간 접수건수</span>
+              <span class="legend-item"><i class="dot-ma4"></i>4주 이동평균</span>
+              <span class="legend-item"><i class="dot-outlier"></i>이상치(Spike)</span>
+              <span class="legend-item"><i class="dot-forecast"></i>4주 예측</span>
+            </div>
+          </div>
+          <div class="chart-wrapper">
+            <canvas id="timeseries-chart" width="760" height="250"></canvas>
+            <div id="chart-tooltip" class="chart-tooltip hidden"></div>
+          </div>
+          <!-- 계절별/연도별 미니 인사이트 바 -->
+          <div id="seasonal-insight-bar" class="insight-chips-row"></div>
+        </section>
+
+        <!-- [요구사항 2, 5, 9] 데이터 관리 (CRUD) 패널 -->
+        <section id="panel-crud" class="card-panel">
+          <div class="panel-header">
+            <div>
+              <h3>🗂️ 시계열 데이터 관리 (Firestore CRUD)</h3>
+              <p class="panel-desc">(date, value, memo) 데이터 추가 · 조회 · 인라인 수정 · 삭제 시 즉시 요약 및 차트에 반영됩니다.</p>
+            </div>
+            <span id="crud-status-badge" class="badge-success">Firestore 실시간 연동</span>
+          </div>
+
+          <!-- 데이터 추가 / 수정 폼 -->
+          <form id="data-form" class="crud-form">
+            <input type="hidden" id="form-item-id" value="" />
+            <div class="form-row">
+              <div class="form-group">
+                <label for="input-date">날짜 (Date)</label>
+                <input type="date" id="input-date" required value="2025-09-22" />
+              </div>
+              <div class="form-group">
+                <label for="input-value">신고접수 건수 (Value)</label>
+                <input type="number" id="input-value" required min="0" step="1" placeholder="예: 264500" value="264500" />
+              </div>
+              <div class="form-group form-group-wide">
+                <label for="input-memo">분석 메모 (Memo)</label>
+                <input type="text" id="input-memo" required maxlength="500" placeholder="예: [가을] 전국 119 주간 접수 | 최다: 경기도(21.4%)·서울(17.2%)" value="[가을] 전국 119 주간 접수 | 최다 지역: 경기도(21.4%)·서울특별시(17.2%) | 피크 시간대: 15시 | 평균 현장도착: 9.4분" />
+              </div>
+              <div class="form-actions">
+                <button type="submit" id="btn-submit-data" class="btn-primary">➕ 데이터 추가</button>
+                <button type="button" id="btn-cancel-edit" class="btn-secondary hidden">취소</button>
+              </div>
+            </div>
+          </form>
+
+          <!-- 검색 및 필터 바 -->
+          <div class="table-toolbar">
+            <div class="search-box">
+              <input type="text" id="input-search" placeholder="🔎 날짜(예: 2025-08), 계절(여름/겨울), 지역(경기도/서울) 검색..." />
+              <button type="button" id="btn-search" class="btn-secondary">검색</button>
+              <button type="button" id="btn-reset-search" class="btn-ghost-sm">전체보기</button>
+            </div>
+            <div class="table-count-info">
+              조회된 레코드: <strong id="table-record-count">0</strong>건
+            </div>
+          </div>
+
+          <!-- 데이터 목록 테이블 -->
+          <div class="table-scroll-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th style="width: 115px;">기준 일자 (Date)</th>
+                  <th style="width: 120px; text-align: right;">접수 건수 (Value)</th>
+                  <th>상세 메모 (Memo)</th>
+                  <th style="width: 130px; text-align: center;">관리 ( 수정 / 삭제 )</th>
+                </tr>
+              </thead>
+              <tbody id="data-table-body">
+                <tr>
+                  <td colspan="4" class="empty-row">데이터를 불러오는 중입니다...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+
+      <!-- 우측 컬럼: 대화 기록(Conversations) & 데이터 기반 AI 채팅 -->
+      <div class="right-column">
+        <!-- [요구사항 3, 6, 9] 대화 기록 저장 및 불러오기 패널 -->
+        <section id="panel-history" class="card-panel history-panel">
+          <div class="panel-header">
+            <div>
+              <h3>🕒 대화 기록 저장 및 불러오기 (Conversations)</h3>
+              <p class="panel-desc">이전 대화를 선택하면 전체 메시지와 도구 호출 내역을 다시 불러옵니다.</p>
+            </div>
+            <div class="history-actions">
+              <button id="btn-new-chat" class="btn-secondary">✨ 새 대화</button>
+              <button id="btn-save-conv" class="btn-primary-sm">💾 현재 대화 저장</button>
+            </div>
+          </div>
+          <div id="conversation-list" class="conversation-list">
+            <!-- JS로 대화 목록 렌더링 -->
+          </div>
+        </section>
+
+        <!-- [요구사항 1, 7, 9 & 보너스 1] 데이터 기반 AI 채팅 인터페이스 -->
+        <section id="panel-chat" class="card-panel chat-panel">
+          <div class="panel-header">
+            <div>
+              <h3>🤖 내 데이터를 아는 119 AI 분석 비서</h3>
+              <p class="panel-desc">저장된 시계열 요약 컨텍스트 주입 + OpenAI/MCP Function Calling 기반 맞춤형 대화</p>
+            </div>
+            <div class="chat-header-controls">
+              <label class="toggle-switch-label" title="보너스 과제: AI 도구 호출(Function Calling) 사용">
+                <input type="checkbox" id="chk-use-tools" checked />
+                <span>🛠️ Function Calling 도구 활성</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- 원클릭 추천 질문 칩 -->
+          <div class="quick-prompts">
+            <span class="quick-label">추천 질문:</span>
+            <button class="chip-btn" data-prompt="최근 119 신고접수 추세와 전체 평균 대비 수준이 어때?">📈 최근 추세 &amp; 평균 비교</button>
+            <button class="chip-btn" data-prompt="가장 신고가 많았던 피크 시기와 최소 시기는 언제이고 원인은 뭐야?">🔥 최고/최저 피크 분석</button>
+            <button class="chip-btn" data-prompt="계절별·연도별 신고 패턴과 향후 4주 예측치를 알려줘.">🔮 계절성 &amp; 향후 4주 예측</button>
+            <button class="chip-btn" data-prompt="신고 급증 시기에 현장도착 시간은 어떻게 변하고 어떤 대응이 필요해?">🚑 현장도착 시간 &amp; 대응전략</button>
+          </div>
+
+          <!-- 채팅 메시지 표시 영역 -->
+          <div id="chat-messages" class="chat-messages" aria-live="polite">
+            <!-- 메시지 렌더링 영역 -->
+          </div>
+
+          <!-- 로딩 인디케이터 (요구사항 1 & 9: 로딩 표시) -->
+          <div id="chat-loading" class="chat-loading hidden">
+            <div class="spinner"></div>
+            <span>AI 비서가 시계열 데이터 요약(/api/data/summary) 및 분석 도구를 호출하여 답변을 작성하고 있습니다...</span>
+          </div>
+
+          <!-- 채팅 입력 폼 -->
+          <form id="chat-form" class="chat-input-row">
+            <input
+              type="text"
+              id="chat-input"
+              placeholder="질문을 입력하세요 (예: 이번 달 신고 추세가 어때? / 가장 신고가 많았던 때는?)"
+              autocomplete="off"
+              required
+            />
+            <button type="submit" id="btn-send-chat" class="btn-primary">전송 🚀</button>
+          </form>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- API 서버 URL 설정 모달 -->
+  <div id="modal-api-config" class="modal-backdrop hidden">
+    <div class="modal-card">
+      <h3>⚙️ 백엔드 API 서버 주소(API_BASE_URL) 설정</h3>
+      <p>로컬 실행(`http://localhost:8000`) 또는 Render 배포 URL을 지정할 수 있습니다.</p>
+      <input type="url" id="input-api-base-url" placeholder="https://your-service.onrender.com" />
+      <div class="modal-actions">
+        <button id="btn-save-api-url" class="btn-primary">저장 및 재연결</button>
+        <button id="btn-close-modal" class="btn-secondary">닫기</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
