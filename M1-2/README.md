@@ -33,9 +33,9 @@
 
 | 구분 | URL / 경로 | 비고 |
 | :--- | :--- | :--- |
-| **프론트엔드 (Web UI)** | `http://localhost:8000/` *(Vercel 배포 시: `https://m1-2-119-ai-assistant.vercel.app`)* | 상단 `⚙️ API 서버 설정`에서 백엔드 URL 즉시 변경 가능 |
-| **백엔드 API 베이스** | `http://localhost:8000/api` *(Render 배포 시: `https://m1-2-119-ai-assistant-api.onrender.com`)* | `/api/health`로 서버 및 Firestore 연결 상태 확인 |
-| **Swagger UI 문서** | `http://localhost:8000/docs` *(Render 배포 시: `https://m1-2-119-ai-assistant-api.onrender.com/docs`)* | 전체 12개 엔드포인트 즉시 테스트 가능 |
+| **프론트엔드 (Vercel)** | [https://ai-frontend-eta-steel.vercel.app/](https://ai-frontend-eta-steel.vercel.app/) | 바닐라 HTML/CSS/JS 대시보드 & AI 챗봇 |
+| **백엔드 API (Render)** | [https://ai-e6ub.onrender.com](https://ai-e6ub.onrender.com) | [헬스체크 (`/api/health`)](https://ai-e6ub.onrender.com/api/health) / [요약 (`/api/data/summary`)](https://ai-e6ub.onrender.com/api/data/summary) |
+| **Swagger UI 문서 (Render)** | [https://ai-e6ub.onrender.com/docs](https://ai-e6ub.onrender.com/docs) | 전체 12개 엔드포인트 명세 확인 및 즉시 테스트 가능 |
 
 > **💡 Render 무료 티어 슬립(Cold Start) 안내**
 > Render 무료 플랜은 15분간 요청이 없으면 슬립 모드로 전환되어 첫 요청 시 약 30~50초의 깨우기(Wake-up) 지연이 발생할 수 있습니다. 프론트엔드 상단 배너 및 `/api/health` 헬스체크 인디케이터를 통해 연결 상태를 실시간으로 안내합니다.

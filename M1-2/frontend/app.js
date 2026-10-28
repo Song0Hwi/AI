@@ -83,6 +83,10 @@ async function apiFetch(path, options = {}) {
 async function checkServerHealth() {
   const dot = document.getElementById("server-status-dot");
   const txt = document.getElementById("server-status-text");
+  const swaggerLink = document.getElementById("link-swagger-docs");
+  if (swaggerLink) {
+    swaggerLink.href = `${state.apiBaseUrl}/docs`;
+  }
   try {
     const health = await apiFetch("/api/health");
     dot.className = "status-dot online";
